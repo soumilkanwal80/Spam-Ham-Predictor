@@ -369,9 +369,10 @@ int main()
     }
 
     char **centres2=computeKMeans(k, string, centres); //reassignment of cluster centres
-    //free(centres);
-    
-    int **histogram = computeHistogram(string, centres2);
+    free(centres);
+    char **centres3=computeKMeans(k, string, centres2);
+    char **centres4=computeKMeans(k, string, centres3);
+    int **histogram = computeHistogram(string, centres4);
 
     int **test=(int **)malloc(sizeof(int *)*543);
     for(i=0;i<543;i++)
